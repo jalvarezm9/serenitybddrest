@@ -48,7 +48,7 @@ public class SerenityKBDDTest {
 
         katherine.should(
                 seeThat("el email del usuario",act->userEspecifico.getEmail(),equalTo("george.bluth@reqres.in")),
-                seeThat("el avatar del usuario",act->userEspecifico.getAvatar(),equalTo("avatar"))
+                seeThat("el avatar del usuario",act->userEspecifico.getAvatar(),equalTo("https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg"))
         );
 
     }

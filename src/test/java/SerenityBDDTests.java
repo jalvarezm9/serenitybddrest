@@ -76,7 +76,7 @@ public class SerenityBDDTests {
         );
 
         cesarAugusto.should(
-                seeThat("el avatar del usuario es",act->user.getAvatar(),equalTo("https://s.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"))
+                seeThat("el avatar del usuario es",act->user.getAvatar(),equalTo("https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"))
         );
 
     }
