@@ -1,5 +1,6 @@
 import facts.NetflixPlans;
 import models.users.Datum;
+import models.users.Foo;
 import models.users.RegisterUserInfo;
 import models.users.UsersRegister;
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -112,6 +113,24 @@ public class SerenityKBDDTest {
                 .whoCan(CallAnApi.at(urlBase));
 
         katherine.has(NetflixPlans.toViewSeries());
+
+    }
+
+    @Test
+    public void builderTest(){
+        Foo foo=Foo.builder()
+                .name("Juan")
+                .lastname("Alvarez")
+                .edad(37)
+                .correo("jalvarezm@outlook.com")
+                .build();
+
+        Foo foo2=Foo.builder()
+                .edad(37)
+                .build();
+
+        System.out.println(foo.toString());
+        System.out.println(foo2.toString());
 
     }
 

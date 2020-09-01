@@ -5,7 +5,8 @@ import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.Tasks;
+
+import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PostRegisterUser implements Task {
 
@@ -16,15 +17,15 @@ public class PostRegisterUser implements Task {
     }
 
     public static Performable withInfo(Object userInfo){
-        return Tasks.instrumented(PostRegisterUser.class,userInfo);
+        return instrumented(PostRegisterUser.class,userInfo);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                Post.to("/api/register")
-                        .with(requestSpecification -> requestSpecification
+                Post.to("/api/register").with(
+                        requestSpecification -> requestSpecification
                                 .contentType(ContentType.JSON)
                                 .body(userInfo)
                             )
